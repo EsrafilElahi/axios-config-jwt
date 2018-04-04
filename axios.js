@@ -8,6 +8,7 @@ const axiosInstance = axios.create({
     process.env.NEXT_PUBLIC_BACKEND_BASE_URL,
 });
 
+
 // request config jwt
 axiosInstance.interceptors.request.use((config) => {
   const accessToken = Cookies.get('accessToken');

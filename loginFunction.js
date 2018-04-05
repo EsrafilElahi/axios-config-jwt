@@ -1,6 +1,7 @@
 import instanceAxios from './axios';
 import Cookies from 'js-cookie';
 
+
 function login(username, password) {
   instanceAxios.post('api/login', { username, password })
     .then((response) => {

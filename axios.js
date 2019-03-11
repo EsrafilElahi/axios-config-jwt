@@ -2,14 +2,13 @@ import axios from "axios";
 import Cookies from 'js-cookie';
 import { useRouter } from "next/router";
 
-
 const axiosInstance = axios.create({
   baseURL:
     process.env.NODE_ENV === "development" &&
     process.env.NEXT_PUBLIC_BACKEND_BASE_URL,
 });
 
-// request config
+// request config jwt
 axiosInstance.interceptors.request.use((config) => {
   const accessToken = Cookies.get('accessToken');
   const refreshToken = Cookies.get('refreshToken');
@@ -36,7 +35,7 @@ axiosInstance.interceptors.request.use((config) => {
   return Promise.reject(error);
 });
 
-// response config
+// response config jwt
 axiosInstance.interceptors.response.use(
   (response) => {
     return response

@@ -21,7 +21,6 @@ axiosInstance.interceptors.request.use((config) => {
   console.log("axiosInstance in req :", axiosInstance.defaults);
 
   const excludeAuthorizationUrls = [
-    "/api/auth/mobile/",
     "/api/auth/email/",
     "/api/auth/confirm/",
   ]
@@ -69,7 +68,7 @@ axiosInstance.interceptors.response.use(
         secure: process.env.NODE_ENV === 'production', // Ensure secure in production
         sameSite: 'lax',
         // path: '/',
-        // domain: 'subdomain.website.com'
+        // domain: esrafil.com
       });
       axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${access_tok}`; 
       return axiosInstance(error.config);

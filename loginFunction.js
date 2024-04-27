@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 
 function login(username, password) {
   instanceAxios.post('api/login', { username, password })
-    .then((response) => {
+    .then((response) => { 
       const { accessToken, accessToken_exp, refreshToken, refreshToken_exp } = response.data;
 
       const access_expiration = new Date(accessToken_exp);
